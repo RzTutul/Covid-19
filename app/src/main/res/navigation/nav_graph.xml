@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/spalshScreen">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.covid19.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/spalshScreen"
+        android:name="com.example.covid19.SpalshScreen"
+        android:label="fragment_spalsh_screen"
+        tools:layout="@layout/fragment_spalsh_screen" />
+    <fragment
+        android:id="@+id/countyHome"
+        android:name="com.example.covid19.CountyHome"
+        android:label="fragment_county_home"
+        tools:layout="@layout/fragment_county_home" />
+</navigation>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Covid19</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="homeCounty">Home Country</string>
+    <string name="allCountry">All County</string>
+</resources>
