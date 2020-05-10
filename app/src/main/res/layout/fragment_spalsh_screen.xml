@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@android:color/white"
     tools:context=".SpalshScreen">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -13,19 +13,32 @@
         android:layout_height="402dp"
         app:lottie_autoPlay="true"
         app:lottie_speed="0.8"
-        app:lottie_fileName="stay-safe-stay-home.json"
+        app:lottie_fileName="stayhomred.json"
         app:lottie_loop="true"
         >
 
     </com.airbnb.lottie.LottieAnimationView>
 
+    <TextView
+        android:layout_below="@+id/lottieAnimationView"
+        android:id="@+id/prentationTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="tv"
+        android:gravity="center"
+        android:fontFamily="sans-serif"
+        android:textSize="12sp"
+        android:textColor="#000"
+        />
+
     <com.github.ybq.android.spinkit.SpinKitView
-        android:layout_below="@id/lottieAnimationView"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/prentationTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         style="@style/SpinKitView.ThreeBounce"
-        app:SpinKit_Color="#fff"
+        app:SpinKit_Color="#4681E6"
 
         />
 

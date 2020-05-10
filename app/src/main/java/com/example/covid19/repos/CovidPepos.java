@@ -9,6 +9,8 @@ import com.example.covid19.pojo.AllWorldCasePojo;
 import com.example.covid19.pojo.CountryWiseCasePojo;
 import com.example.covid19.serviceapi.CovidInfoServiceApi;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,6 +21,7 @@ public class CovidPepos {
 
     MutableLiveData<CountryWiseCasePojo> countryWiseLD = new MutableLiveData<>();
     MutableLiveData<AllWorldCasePojo> allWorldWiseLD = new MutableLiveData<>();
+    MutableLiveData<List<CountryWiseCasePojo>> allCountyLD = new MutableLiveData<>();
 
 
     public MutableLiveData<CountryWiseCasePojo> getCountyWiseInfo(String endurl)
@@ -41,6 +44,27 @@ public class CovidPepos {
 
         return countryWiseLD;
     }
+        public MutableLiveData<List<CountryWiseCasePojo>> getAllCountyWiseInfo(String endurl) {
+
+            CovidInfoServiceApi covidInfoServiceApi = RetrofitClient.getRetrofitClient().create(CovidInfoServiceApi.class);
+
+            covidInfoServiceApi.getAllCountyCase(endurl).enqueue(new Callback<List<CountryWiseCasePojo>>() {
+                @Override
+                public void onResponse(Call<List<CountryWiseCasePojo>> call, Response<List<CountryWiseCasePojo>> response) {
+
+                    allCountyLD.postValue(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<CountryWiseCasePojo>> call, Throwable t) {
+                    Log.i(TAG, "allcountyWiseData: "+t.getLocalizedMessage());
+                }
+            });
+
+            return allCountyLD;
+        }
+
+
     public MutableLiveData<AllWorldCasePojo> getAllWorldWise(String endurl)
     {
 

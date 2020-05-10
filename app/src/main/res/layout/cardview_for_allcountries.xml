@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    app:cardCornerRadius="10dp"
+    android:elevation="10dp"
+    android:layout_height="170dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="3"
+        >
+
+        <LinearLayout
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/flagimage"
+                android:layout_width="79dp"
+                android:layout_height="84dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/homecountyicon"
+                />
+
+            <TextView
+                android:id="@+id/contentTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asia"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_weight="1.3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+           android:orientation="vertical"
+            >
+
+
+            <TextView
+                android:textColor="#000"
+                android:gravity="center"
+                android:id="@+id/textViewcountryname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bangladesh"
+                android:fontFamily="sans-serif-smallcaps"
+                />
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="7dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Case:"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/c_totalCase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="0"
+                        android:textColor="#000"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recovered:"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_marginLeft="17dp"
+                        android:id="@+id/c_totalRecoverTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Deaths:"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/c_totalDeaths"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="0"
+                        android:textColor="#F50404"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Active Case:"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+                        android:textColor="#5FCE09"
+                        android:layout_marginLeft="13dp"
+                        android:id="@+id/c_activeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Critical Case:"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/c_criticalCaseTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Tests:"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_marginLeft="12dp"
+                        android:id="@+id/c_totalTestTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="deathperMill."
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/c_deathPerMillTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CasesperMill."
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/c_casePerMillTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TestsperMill."
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_marginLeft="6dp"
+                        android:id="@+id/c_testPerMillTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_weight="0.9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+          android:layout_marginLeft="5dp"
+            >
+
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_width="3dp"
+                android:layout_height="120dp"
+                android:background="@drawable/view_shape"
+
+                />
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginLeft="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today Cases:"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+                        android:textColor="#02FA83"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/c_todayCaseTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today deaths:"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+                    <TextView
+
+                        android:textColor="#F70202"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/c_todaydeathsTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

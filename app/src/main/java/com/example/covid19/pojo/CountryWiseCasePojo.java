@@ -21,7 +21,7 @@ public class CountryWiseCasePojo {
 
     private String casesPerOneMillion;
 
-    private CountryInfoPojo countryInfoPojo;
+    public CountryInfo countryInfo;
 
     private long updated;
 
@@ -131,14 +131,15 @@ public class CountryWiseCasePojo {
         this.casesPerOneMillion = casesPerOneMillion;
     }
 
-    public CountryInfoPojo getCountryInfoPojo()
+    public CountryInfo getCountryInfo()
     {
-        return countryInfoPojo;
+
+        return countryInfo;
     }
 
-    public void setCountryInfoPojo(CountryInfoPojo countryInfoPojo)
+    public void setCountryInfo(CountryInfo countryInfo)
     {
-        this.countryInfoPojo = countryInfoPojo;
+        this.countryInfo = countryInfo;
     }
 
     public long getUpdated ()
@@ -184,6 +185,6 @@ public class CountryWiseCasePojo {
     @Override
     public String toString()
     {
-        return "ClassPojo [continent = "+continent+", country = "+country+", cases = "+cases+", critical = "+critical+", active = "+active+", testsPerOneMillion = "+testsPerOneMillion+", recovered = "+recovered+", tests = "+tests+", deathsPerOneMillion = "+deathsPerOneMillion+", casesPerOneMillion = "+casesPerOneMillion+", countryInfoPojo = "+ countryInfoPojo +", updated = "+updated+", deaths = "+deaths+", todayCases = "+todayCases+", todayDeaths = "+todayDeaths+"]";
+        return "ClassPojo [continent = "+continent+", country = "+country+", cases = "+cases+", critical = "+critical+", active = "+active+", testsPerOneMillion = "+testsPerOneMillion+", recovered = "+recovered+", tests = "+tests+", deathsPerOneMillion = "+deathsPerOneMillion+", casesPerOneMillion = "+casesPerOneMillion+", countryInfo = "+ countryInfo +", updated = "+updated+", deaths = "+deaths+", todayCases = "+todayCases+", todayDeaths = "+todayDeaths+"]";
     }
 }

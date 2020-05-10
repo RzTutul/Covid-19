@@ -11,6 +11,9 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.Random;
 
 
 /**
@@ -18,7 +21,17 @@ import android.view.ViewGroup;
  */
 public class SpalshScreen extends Fragment {
 
+    String[] prevention = {
+            "Clean your hands often",
+            "Clean your phone often",
+            "Don’t touch your eyes, nose or mouth",
+            "Cover your nose and mouth when you cough or sneeze",
+            "Maintain social distancing",
+            "Stay home if you feel unwell",
+            "Follow the directions of your local health authority"
+    };
 
+    TextView preventingTV;
     public SpalshScreen() {
         // Required empty public constructor
     }
@@ -34,6 +47,14 @@ public class SpalshScreen extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        preventingTV = view.findViewById(R.id.prentationTV);
+
+
+        Random random = new Random();
+        int n = random.nextInt((prevention.length)-1);
+
+        preventingTV.setText(prevention[n]);
 
         Thread thread = new Thread(new Runnable() {
             @Override

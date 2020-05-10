@@ -20,4 +20,19 @@
         android:name="com.example.covid19.CountyHome"
         android:label="fragment_county_home"
         tools:layout="@layout/fragment_county_home" />
+    <fragment
+        android:id="@+id/allCountyCaseFragment"
+        android:name="com.example.covid19.AllCountyCaseFragment"
+        android:label="fragment_all_county_case"
+        tools:layout="@layout/fragment_all_county_case" />
+    <fragment
+        android:id="@+id/symtomFragment"
+        android:name="com.example.covid19.SymtomFragment"
+        android:label="fragment_symtom"
+        tools:layout="@layout/fragment_symtom" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.covid19.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>

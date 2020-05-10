@@ -21,6 +21,8 @@ import com.example.covid19.helper.Utils;
 import com.example.covid19.pojo.CountryWiseCasePojo;
 import com.example.covid19.pojo.CountyCaseData;
 import com.example.covid19.viwemodel.CovidViewModel;
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class CountyHome extends Fragment {
 
     CovidViewModel covidViewModel;
     ProgressBar dataProgress;
+    CircularImageView flagimage;
 
     public CountyHome() {
         // Required empty public constructor
@@ -63,6 +66,7 @@ public class CountyHome extends Fragment {
         todayDeathTV = view.findViewById(R.id.todayDeathTV);
         updateTV = view.findViewById(R.id.updateTV);
         dataProgress = view.findViewById(R.id.dataProgress);
+        flagimage = view.findViewById(R.id.flagimage);
 
         dataProgress.setVisibility(View.VISIBLE);
 
@@ -83,6 +87,8 @@ public class CountyHome extends Fragment {
                 todayCaseTV.setText(countryWiseCasePojo.getTodayCases());
                 todayDeathTV.setText(countryWiseCasePojo.getTodayDeaths());
                 updateTV.setText(Utils.getDateFormat(countryWiseCasePojo.getUpdated()));
+                Picasso.get().load(countryWiseCasePojo.getCountryInfo().getFlag()).into(flagimage);
+
 
             }
         });

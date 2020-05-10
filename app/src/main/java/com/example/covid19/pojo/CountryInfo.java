@@ -1,6 +1,7 @@
 package com.example.covid19.pojo;
 
-public class CountryInfoPojo {
+public class CountryInfo {
+
     private String flag;
 
     private String _id;

@@ -2,11 +2,13 @@ package com.example.covid19;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,28 +19,35 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 
 public class MainActivity extends AppCompatActivity {
-private NavController navController;
+    private NavController navController;
     AHBottomNavigation bottomNavigation;
+    boolean isExit = false;
+    boolean isBack = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-      bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
+        bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
 
-        navController = Navigation.findNavController(this,R.id.nav_host_fragment_container);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_container);
 
 
 // Create items
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.home, R.drawable.worldicon, R.color.transparent);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.homeCounty, R.drawable.homecountyicon, R.color.colorPrimaryDark);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.allCountry, R.drawable.symtomicon, R.color.colorBottomNavigationAccent);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.allCountry, R.drawable.allcountyicon, R.color.flag);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.symptoms, R.drawable.symtomicon, R.color.transparent);
+        AHBottomNavigationItem item5 = new AHBottomNavigationItem(R.string.info, R.drawable.ic_info_outline_black_24dp, R.color.info);
 
 // Add items
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
+        bottomNavigation.addItem(item4);
+        bottomNavigation.addItem(item5);
 
 
         // Set background color
@@ -86,9 +95,24 @@ private NavController navController;
                     case 1:
                         Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_container).navigate(R.id.countyHome);
                         break;
+                    case 2:
+                        Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_container).navigate(R.id.allCountyCaseFragment);
+                        break;
+                    case 3:
+                        Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_container).navigate(R.id.symtomFragment);
+
+                        break;
+                    case 4:
+                        Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_container).navigate(R.id.aboutFragment);
+
+                        break;
+
+                        default:
+                            break;
 
 
                 }
+
 
                 return true;
             }
@@ -104,27 +128,72 @@ private NavController navController;
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                switch (destination.getId())
-                {
+                switch (destination.getId()) {
                     case R.id.spalshScreen:
                         bottomNavigation.setVisibility(View.GONE);
+
                         break;
                     case R.id.homeFragment:
                         new Handler(Looper.getMainLooper()).post(new Runnable() {
                             @Override
                             public void run() {
                                 bottomNavigation.setVisibility(View.VISIBLE);
-
                             }
                         });
+                        isExit = true;
+
+                        break;
+                    case R.id.countyHome:
+                        isExit = true;
+                        break;
+                    case R.id.allCountyCaseFragment:
+                        isExit = true;
+
+                        break;
+                    case R.id.symtomFragment:
+                        isExit = true;
+
+                        break;
+                    case R.id.aboutFragment:
+                        isExit = true;
+                        isBack = true;
                         break;
 
-                        default:
+
+                    default:
+                        isExit = false;
+                        break;
                 }
             }
         });
     }
 
 
+    @Override
+    public void onBackPressed() {
+
+        if (isExit) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setIcon(R.drawable.ic_exit_to_app_black_24dp);
+            builder.setTitle("Do you want to exit?");
+            builder.setMessage("Covid-19 Stay Safe!")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            MainActivity.this.finish();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
 
 }
