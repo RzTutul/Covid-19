@@ -10,8 +10,10 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.covid19.OnlineWebView;
 import com.example.covid19.R;
 import com.example.covid19.pojo.CountryWiseCasePojo;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -61,6 +63,15 @@ private List<CountryWiseCasePojo> list;
 
        // Log.i(TAG, "onBindViewHolder: "+countyCaseData.getCountryInfo().getFlag()) ;
        Picasso.get().load(countyCaseData.getCountryInfo().getFlag()).into(holder.imageView);
+
+       holder.itemView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               OnlineWebView.countyName=countyCaseData.getCountry();
+               Navigation.findNavController(holder.itemView).navigate(R.id.onlineWebView);
+           }
+       });
 
 
     }

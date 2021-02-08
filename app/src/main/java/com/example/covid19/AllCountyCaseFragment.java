@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ import com.example.covid19.viwemodel.CovidViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -34,10 +37,13 @@ import java.util.List;
  */
 public class AllCountyCaseFragment extends Fragment {
 
+    Button filterBtn;
     ProgressBar dataProgress;
     CovidViewModel covidViewModel;
 Spinner selectCountySpinner;
 RecyclerView allCountryRV;
+
+List<CountryWiseCasePojo> countryWiseCasePojoArrayList;
 String [] countryName={"All Countries","Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla",
             "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria",
             "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium",
@@ -94,6 +100,7 @@ String [] countryName={"All Countries","Afghanistan", "Albania", "Algeria", "Ame
         selectCountySpinner = view.findViewById(R.id.selectCountySp);
         allCountryRV = view.findViewById(R.id.allCountryRV);
         dataProgress = view.findViewById(R.id.dataProgress);
+        countryWiseCasePojoArrayList = new ArrayList<>();
 
         dataProgress.setVisibility(View.VISIBLE);
 
@@ -101,7 +108,6 @@ String [] countryName={"All Countries","Afghanistan", "Albania", "Algeria", "Ame
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,countryName);
 
         selectCountySpinner.setAdapter(adapter);
-
 
 
 
@@ -117,6 +123,10 @@ String [] countryName={"All Countries","Afghanistan", "Albania", "Algeria", "Ame
                         @Override
                         public void onChanged(List<CountryWiseCasePojo> countryWiseCasePojos) {
 
+                            for (CountryWiseCasePojo countryWiseCasePojo: countryWiseCasePojos)
+                            {
+                                countryWiseCasePojoArrayList.add(countryWiseCasePojo);
+                            }
                             if (countryWiseCasePojos.size()>0)
                             {
                                 dataProgress.setVisibility(View.GONE);

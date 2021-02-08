@@ -37,8 +37,8 @@ public class AboutFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-      /*  LinearLayout ll = view.findViewById(R.id.layout);
+       LinearLayout ll = view.findViewById(R.id.layout);
         Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.animation_above);
-        ll.startAnimation(animation);*/
+        ll.startAnimation(animation);
     }
 }
